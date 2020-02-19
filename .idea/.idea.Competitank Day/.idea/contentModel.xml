@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Arata Reito\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Arata Reito\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_Competitank Day.1733851294.00" t="ExcludeRecursive" />
+    <e p="E:\GameProject\UnityProject\Competitank Day" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="3D Models" t="Include">
+          <e p="vvmd0k7hfsao-TankShell" t="Include">
+            <e p="Readme.txt" t="Include" />
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="InputData.cs" t="Include" />
+          <e p="TankBehaviour.cs" t="Include" />
+          <e p="TankControl.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Competitank Day.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
