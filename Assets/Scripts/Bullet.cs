@@ -4,11 +4,13 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed; 
     [SerializeField] private int maxHit;
+    [SerializeField] private TrailRenderer trailRender;
     
     private Rigidbody rigid;
     private int currentHit;
     private Vector3 direction;
     private Vector3 desireDirection;
+    
 
     public void Initialize()
     {
@@ -22,6 +24,7 @@ public class Bullet : MonoBehaviour
     {
         direction = setDirection;
         transform.rotation = Quaternion.Euler(0f, angle ,90f);
+        trailRender.enabled = true;
     }
 
     void Update()
@@ -76,6 +79,7 @@ public class Bullet : MonoBehaviour
 
     private void OnDisable()
     {
+        trailRender.enabled = false;
         direction = Vector3.zero;
         desireDirection = Vector3.zero;
         rigid.velocity = Vector3.zero;
