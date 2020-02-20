@@ -17,4 +17,4 @@ MonoBehaviour:
   verticalMoveAxis: VerticalMove1
   horizontalRotateAxis: HorizontalRotate1
   verticalRotateAxis: VerticalRotate1
-  fire: 330
+  fire: 331

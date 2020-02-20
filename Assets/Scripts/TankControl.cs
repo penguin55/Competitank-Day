@@ -5,8 +5,6 @@ using UnityEngine;
 public class TankControl : TankBehaviour
 {
     [SerializeField] private InputData _input;
-
-    private float xMove, zMove;
     
     // Start is called before the first frame update
     void Start()
@@ -15,23 +13,38 @@ public class TankControl : TankBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
+    {
+        FireTimer();
+
+        if (inFire) return;
+        LoopControl();
+    }
+
+    void FixedUpdate()
     {
         LoopBehaviour();
     }
 
     void ControlInput()
     {
-        xMove = Input.GetAxis(_input.horizontalMoveAxis);
-        zMove = Input.GetAxis(_input.verticalMoveAxis);
+        moveDirection = Input.GetAxis(_input.verticalMoveAxis);
+        turnDirection = Input.GetAxis(_input.horizontalMoveAxis);
 
-        directionMove = new Vector3(xMove, rigid.velocity.y, zMove);
+        if (Input.GetKeyDown(_input.fire))
+        {
+            Fire();
+        }
     }
 
     void LoopBehaviour()
     {
-        ControlInput();
-        
         TankMove();
+        RotateTank();
+    }
+
+    void LoopControl()
+    {
+        ControlInput();
     }
 }
