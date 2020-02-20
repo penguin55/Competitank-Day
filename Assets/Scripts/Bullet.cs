@@ -1,22 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float bulletSpeed;
-
+    [SerializeField] private float bulletSpeed; 
+    [SerializeField] private int maxHit;
+    
+    private Rigidbody rigid;
+    private int currentHit;
     private Vector3 direction;
     private Vector3 desireDirection;
 
-    private void OnDisable()
+    public void Initialize()
     {
+        rigid = GetComponent<Rigidbody>();
         direction = Vector3.zero;
+        desireDirection = Vector3.zero;
+        rigid.velocity = Vector3.zero;
     }
 
-    public void Initialize(Vector3 setDirection)
+    public void SetDirection(Vector3 setDirection, float angle)
     {
         direction = setDirection;
+        transform.rotation = Quaternion.Euler(0f, angle ,90f);
     }
 
     void Update()
@@ -26,7 +31,7 @@ public class Bullet : MonoBehaviour
 
     void BulletMove()
     {
-        transform.Translate(direction * bulletSpeed * Time.deltaTime);
+        rigid.velocity = direction * bulletSpeed;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -34,17 +39,45 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall"))
         {
             desireDirection = Vector3.Reflect(direction, collision.contacts[0].normal);
+            Quaternion angleAdjustment = Quaternion.FromToRotation(direction, desireDirection);
+            transform.rotation = angleAdjustment * transform.rotation;
             direction = desireDirection;
+            CountHit();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-       
+        if (other.CompareTag("Player"))
+        {
+            DestroyObject();
+        }
     }
 
-    float GetAngleCollision()
+    private void DestroyObject()
     {
-        return 0;
+        SharedPoolingObject.instance.DeactiveObject(gameObject);
+    }
+
+    private void CountHit()
+    {
+        currentHit++;
+        if (currentHit >= maxHit)
+        {
+            currentHit = 0;
+            DestroyObject();
+        }
+    }
+
+    private void OnEnable()
+    {
+        currentHit = 0;
+    }
+
+    private void OnDisable()
+    {
+        direction = Vector3.zero;
+        desireDirection = Vector3.zero;
+        rigid.velocity = Vector3.zero;
     }
 }

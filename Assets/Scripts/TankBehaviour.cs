@@ -9,8 +9,7 @@ public class TankBehaviour : MonoBehaviour
     protected bool moveable;
     protected Rigidbody rigid;
     protected bool inFire;
-
-    [SerializeField] private GameObject bullet;
+    
     [SerializeField] private Transform bulletSpawnPosition;
     [SerializeField] private Transform bulletDirection;
     [SerializeField] private float fireRate;
@@ -49,18 +48,25 @@ public class TankBehaviour : MonoBehaviour
     {
         if (fireTime >= fireRate)
         {
-            GameObject bulletInstance = Instantiate(bullet, bulletSpawnPosition.position, Quaternion.Euler(0f, transform.eulerAngles.y, 90f));
-            bulletInstance.GetComponent<Bullet>().Initialize(GetDirectionFire().normalized);
-            fireTime = 0;
-            inFire = true;
-            ResetMovement();
-            FireKnockback();
+            GameObject bulletInstance = SharedPoolingObject.instance.GetObject("Bullet");
+            if (bulletInstance != null)
+            {
+                bulletInstance.transform.parent = null;
+                bulletInstance.SetActive(true);
+                bulletInstance.transform.position = bulletSpawnPosition.position;
+                bulletInstance.GetComponent<Bullet>().SetDirection(GetDirectionFire().normalized, transform.eulerAngles.y);
+
+                fireTime = 0;
+                inFire = true;
+                ResetMovement();
+                FireKnockback();
+            }
         }
     }
 
     private Vector3 GetDirectionFire()
     {
-        return bulletDirection.localPosition - bulletSpawnPosition.localPosition;
+        return bulletDirection.position - bulletSpawnPosition.position;
     }
 
     protected void FireTimer()
