@@ -79,6 +79,7 @@ public class Bullet : MonoBehaviour
 
     private void OnDisable()
     {
+        trailRender.Clear();
         trailRender.enabled = false;
         direction = Vector3.zero;
         desireDirection = Vector3.zero;
