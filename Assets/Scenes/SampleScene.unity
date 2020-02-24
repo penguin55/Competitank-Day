@@ -276,6 +276,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38290948}
   m_Mesh: {fileID: 3163171260390484736, guid: f7c3d1876fec0c1438a65e0f881769b8, type: 3}
+--- !u!1 &54622766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 54622767}
+  m_Layer: 0
+  m_Name: TurretBulet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &54622767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54622766}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 897425917}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &93171091
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +333,8 @@ Transform:
   m_LocalPosition: {x: -0.57326126, y: 0.23, z: 1.8913593}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 256775171}
+  - {fileID: 618829985}
   - {fileID: 4831534741654817142}
   - {fileID: 1012982017}
   m_Father: {fileID: 1324611611760678194}
@@ -570,7 +602,7 @@ Transform:
   m_GameObject: {fileID: 215085112}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.57326126, y: -0.16933382, z: 1.8913593}
-  m_LocalScale: {x: 60, y: 60, z: 60}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 1324611611760678194}
   m_RootOrder: 0
@@ -946,6 +978,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234979238}
   m_Mesh: {fileID: 8691780276856062721, guid: f7c3d1876fec0c1438a65e0f881769b8, type: 3}
+--- !u!1 &256775170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 256775171}
+  m_Layer: 12
+  m_Name: Bulletspawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &256775171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256775170}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.02326107, y: 1.7, z: 2.9186401}
+  m_LocalScale: {x: 0.10000012, y: 0.10000012, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 93171092}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &258939026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,8 +2289,8 @@ Transform:
   m_Father: {fileID: 1091096015}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
---- !u!64 &603184501
-MeshCollider:
+--- !u!65 &603184501
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2237,10 +2299,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10.000002, y: 4.73, z: 9.999999}
+  m_Center: {x: -0.00000047683716, y: -1.8, z: 0.000000044703484}
 --- !u!23 &603184502
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2365,6 +2426,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 615076851}
   m_Mesh: {fileID: 3163171260390484736, guid: f7c3d1876fec0c1438a65e0f881769b8, type: 3}
+--- !u!1 &618829984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 618829985}
+  m_Layer: 12
+  m_Name: Bullet Direction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &618829985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618829984}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.02326107, y: 1.7, z: 4.56}
+  m_LocalScale: {x: 0.10000005, y: 0.10000005, z: 0.099999994}
+  m_Children: []
+  m_Father: {fileID: 93171092}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &630060047
 GameObject:
   m_ObjectHideFlags: 0
@@ -2723,8 +2814,8 @@ Transform:
   m_Father: {fileID: 1091096015}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!64 &715523910
-MeshCollider:
+--- !u!65 &715523910
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2733,10 +2824,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10.000002, y: 4.73, z: 9.999999}
+  m_Center: {x: -0.00000047683716, y: -1.8, z: 0.000000044703484}
 --- !u!23 &715523911
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3670,10 +3760,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3d5c36650efb9e4790f5f3533a8932a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefabs: {fileID: 676148801679489303, guid: 64a594281195c7745b3ab28f08a3a870,
+  tankBulletPrefabs: {fileID: 676148801679489303, guid: 64a594281195c7745b3ab28f08a3a870,
     type: 3}
-  parentPool: {fileID: 897425917}
-  objectsPooled: 200
+  tankBulletParentPool: {fileID: 1781728456}
+  tankBulletsPooled: 100
+  turretBulletPrefabs: {fileID: 676148801679489303, guid: 5173d663211b8ba439b209f7d087dc5f,
+    type: 3}
+  turretBulletParentPool: {fileID: 54622767}
+  turretBulletsPooled: 200
 --- !u!4 &897425917
 Transform:
   m_ObjectHideFlags: 0
@@ -3684,7 +3778,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1781728456}
+  - {fileID: 54622767}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4791,7 +4887,7 @@ Transform:
   - {fileID: 863958633419140806}
   - {fileID: 2763609130261715185}
   m_Father: {fileID: 93171092}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!1 &1062852072
 GameObject:
@@ -5233,8 +5329,8 @@ Transform:
   m_Father: {fileID: 1091096015}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 270}
---- !u!64 &1176825113
-MeshCollider:
+--- !u!65 &1176825113
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5243,10 +5339,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10.000002, y: 4.73, z: 9.999999}
+  m_Center: {x: -0.00000047683716, y: -1.8, z: 0.000000044703484}
 --- !u!23 &1176825114
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7121,8 +7216,8 @@ Transform:
   m_Father: {fileID: 1091096015}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 90}
---- !u!64 &1638663460
-MeshCollider:
+--- !u!65 &1638663460
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7131,10 +7226,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10.000002, y: 4.73, z: 9.999999}
+  m_Center: {x: -0.00000047683716, y: -1.8, z: 0.000000044703484}
 --- !u!23 &1638663461
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7788,6 +7882,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762849398}
   m_Mesh: {fileID: -3329902420748629119, guid: f7c3d1876fec0c1438a65e0f881769b8, type: 3}
+--- !u!1 &1781728455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1781728456}
+  m_Layer: 0
+  m_Name: TankBullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1781728456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781728455}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 897425917}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1811240869
 GameObject:
   m_ObjectHideFlags: 0
@@ -11832,6 +11956,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turret: {fileID: 93171092}
   rotateSpeed: 5
+  bullets: {fileID: 676148801679489303, guid: 5173d663211b8ba439b209f7d087dc5f, type: 3}
+  bulletSpawnPosition: {fileID: 256775171}
+  bulletDirection: {fileID: 618829985}
+  fireRate: 0.1
 --- !u!54 &2610591240232412963
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11946,7 +12074,7 @@ PrefabInstance:
     - target: {fileID: 2707741362515142990, guid: ac453df1109a405499ae188c1e11bd2d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2707741362616870403, guid: ac453df1109a405499ae188c1e11bd2d,
         type: 3}
@@ -13592,7 +13720,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 93171092}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4872713266634716824
 Transform:

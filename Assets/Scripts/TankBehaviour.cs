@@ -48,13 +48,14 @@ public class TankBehaviour : MonoBehaviour
     {
         if (fireTime >= fireRate)
         {
-            GameObject bulletInstance = SharedPoolingObject.instance.GetObject("Bullet");
+            GameObject bulletInstance = SharedPoolingObject.instance.GetObject("Tank-Bullet");
             if (bulletInstance != null)
             {
                 bulletInstance.transform.parent = null;
                 bulletInstance.SetActive(true);
                 bulletInstance.transform.position = bulletSpawnPosition.position;
                 bulletInstance.GetComponent<Bullet>().SetDirection(GetDirectionFire().normalized, transform.eulerAngles.y);
+                bulletInstance.GetComponent<Bullet>().SetOwner("tank");
 
                 fireTime = 0;
                 inFire = true;
