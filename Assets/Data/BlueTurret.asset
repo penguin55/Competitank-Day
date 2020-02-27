@@ -9,15 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cbdeabbb04943c44b7d9658ca13ea04, type: 3}
-  m_Name: Controller1
+  m_Script: {fileID: 11500000, guid: e939585b344d3b542b842edbd4185a39, type: 3}
+  m_Name: BlueTurret
   m_EditorClassIdentifier: 
-  info:
-    playerID: Player 1
-    health: 100
-  typeController: Player 1
-  horizontalMoveAxis: HorizontalMove1
-  verticalMoveAxis: VerticalMove1
-  skillTurret: 352
-  skillCamera: 350
-  fire: 351
+  nameSkill: Turret
+  durationSkill: 0
+  prefabs: {fileID: 7686754790047564884, guid: a87da23c51a1ce6418de8e580731d52f, type: 3}

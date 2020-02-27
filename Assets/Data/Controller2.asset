@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cbdeabbb04943c44b7d9658ca13ea04, type: 3}
-  m_Name: Controller1
+  m_Name: Controller2
   m_EditorClassIdentifier: 
   info:
-    playerID: Player 1
+    playerID: Player 2
     health: 100
-  typeController: Player 1
-  horizontalMoveAxis: HorizontalMove1
-  verticalMoveAxis: VerticalMove1
-  skillTurret: 352
-  skillCamera: 350
-  fire: 351
+  typeController: Player 2
+  horizontalMoveAxis: HorizontalMove2
+  verticalMoveAxis: VerticalMove2
+  skillTurret: 372
+  skillCamera: 370
+  fire: 371

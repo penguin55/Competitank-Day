@@ -51,6 +51,7 @@ MonoBehaviour:
   bulletSpeed: 250
   maxHit: 1
   trailRender: {fileID: 3208573522213989610}
+  damage: 2
 --- !u!54 &1798685885
 Rigidbody:
   m_ObjectHideFlags: 0

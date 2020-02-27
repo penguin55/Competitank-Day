@@ -22,13 +22,42 @@ public class TankBehaviour : MonoBehaviour
     private float fireTime;
     private Quaternion rotationTemp;
     private Vector3 direction;
+    private int maxHealth;
+    private int health;
+    private string playerID;
 
-    protected void Initialize()
+    protected void ResetData()
+    {
+        moveable = true;
+        fireTime = fireRate;
+        inFire = false;
+        health = maxHealth;
+    }
+
+    protected void Initialize(string playerID)
     {
         rigid = GetComponent<Rigidbody>();
         moveable = true;
         fireTime = fireRate;
         inFire = false;
+        this.playerID = playerID;
+    }
+
+    protected void SetHealth(int health)
+    {
+        maxHealth = health;
+        this.health = health;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health < 0)
+        {
+            health = 0;
+            Dead();
+        }
+        UIManager.instance.UpdateBarHeath(playerID, health);
     }
     
     protected void TankMove()
@@ -65,6 +94,12 @@ public class TankBehaviour : MonoBehaviour
         }
     }
 
+    private void Dead()
+    {
+        gameObject.SetActive(false);
+        GameManagement.instance.Respawn(playerID);
+    }
+
     private Vector3 GetDirectionFire()
     {
         return bulletDirection.position - bulletSpawnPosition.position;
@@ -91,5 +126,4 @@ public class TankBehaviour : MonoBehaviour
         moveDirection = 0;
         turnDirection = 0;
     }
-
 }

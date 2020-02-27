@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TowerBehaviour : MonoBehaviour
 {
+    public static TowerBehaviour instance;
+
     [SerializeField] private Slider captureBar;
     [SerializeField] private float timeCapture;
     [SerializeField] private float maxValue;
@@ -22,6 +24,7 @@ public class TowerBehaviour : MonoBehaviour
         captureBar.value = maxValue / 2;
         redFieldValue = maxValue / 2;
         blueFieldValue = maxValue / 2;
+        instance = this;
     }
 
     private void Start()
@@ -109,5 +112,18 @@ public class TowerBehaviour : MonoBehaviour
     private void UpdateBarField()
     {
         captureBar.value = redFieldValue;
+    }
+
+    public void SetTankInArea(string command, bool flag)
+    {
+        switch (command.ToLower())
+        {
+            case "player 1":
+                redTeam = flag;
+                break;
+            case "player 2":
+                blueTeam = flag;
+                break;
+        }
     }
 }

@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float bulletSpeed; 
     [SerializeField] private int maxHit;
     [SerializeField] private TrailRenderer trailRender;
+    [SerializeField] private int damage;
     
     private Rigidbody rigid;
     private int currentHit;
@@ -71,6 +72,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            other.GetComponentInParent<TankBehaviour>().TakeDamage(damage);
             DestroyObject();
         }
     }

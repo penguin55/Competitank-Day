@@ -9,7 +9,9 @@ public class TankControl : TankBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Initialize();   
+        Initialize(_input.info.playerID);
+        SetHealth(_input.info.health);
+        UIManager.instance.SetHealthValue(_input.info.playerID, _input.info.health);
     }
 
     // Update is called once per frame
@@ -46,5 +48,27 @@ public class TankControl : TankBehaviour
     void LoopControl()
     {
         ControlInput();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Tower"))
+        {
+            TowerBehaviour.instance.SetTankInArea(_input.typeController, true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Tower"))
+        {
+            TowerBehaviour.instance.SetTankInArea(_input.typeController, false);
+        }
+    }
+
+    private void OnEnable()
+    {
+        ResetData();
+        UIManager.instance.SetHealthValue(_input.info.playerID, _input.info.health);
     }
 }

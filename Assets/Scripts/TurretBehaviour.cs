@@ -7,30 +7,37 @@ public class TurretBehaviour : MonoBehaviour
 
     [SerializeField] private Transform turret;
     [SerializeField] private float rotateSpeed;
-    [SerializeField] private GameObject bullets;
     [SerializeField] private Transform bulletSpawnPosition;
     [SerializeField] private Transform bulletDirection;
     [SerializeField] private float fireRate;
+    [SerializeField] private float offsetToActiveObject;
+    [SerializeField] private Collider coll;
 
     private Transform target;
     private Vector3 targetNormalize;
     private Quaternion toRotation;
     private float timeFireRate;
+    private GameObject owner;
+    private bool active;
+    private SkillControl skillControl;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Initialize(GameObject owner, SkillControl skillControl)
     {
-        
+        coll.enabled = false;
+        active = false;
+        this.owner = owner;
+        this.skillControl = skillControl;
     }
 
     // Update is called once per frame
     void Update()
     {
+        CheckDistanceFromOwner();
         RotateTo();
         Fire();
     }
 
-    protected void RotateTo()
+    private void RotateTo()
     {
         if (target)
         {
@@ -41,9 +48,22 @@ public class TurretBehaviour : MonoBehaviour
         }
     }
 
-    protected void Fire()
+    private void CheckDistanceFromOwner()
+    {
+        if (!active)
+        {
+            if (Vector3.Distance(owner.transform.position, transform.position) > offsetToActiveObject)
+            {
+                coll.enabled = true;
+                active = true;
+            }
+        }
+    }
+
+    private void Fire()
     {
         if (target == null) return;
+        if (!target.parent.gameObject.activeSelf) target = null;
         if (timeFireRate > fireRate)
         {
             GameObject bulletInstance = SharedPoolingObject.instance.GetObject("Turret-Bullet");
@@ -71,8 +91,7 @@ public class TurretBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log(collision.name);
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && collision.gameObject != owner)
         {
             target = collision.gameObject.transform;
         }
@@ -80,9 +99,14 @@ public class TurretBehaviour : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && other.gameObject != owner)
         {
             target = null;
         }
+    }
+
+    private void OnDisable()
+    {
+        skillControl.CanSkillTurret();
     }
 }
