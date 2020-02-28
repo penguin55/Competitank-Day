@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "AddSkill", fileName = "Turret")]
+[CreateAssetMenu(menuName = "AddSkill/Turret", fileName = "Turret")]
 public class SpawnTurret : ScriptableObject
 {
     public string nameSkill;

@@ -98,6 +98,7 @@ public class TankBehaviour : MonoBehaviour
     {
         gameObject.SetActive(false);
         GameManagement.instance.Respawn(playerID);
+        ResetSkill();
     }
 
     private Vector3 GetDirectionFire()
@@ -125,5 +126,10 @@ public class TankBehaviour : MonoBehaviour
     {
         moveDirection = 0;
         turnDirection = 0;
+    }
+
+    private void ResetSkill()
+    {
+        TPSCameraManagement.instance.SetActiveTPSCamera(playerID, false);
     }
 }

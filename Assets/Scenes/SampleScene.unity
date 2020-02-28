@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _input: {fileID: 11400000, guid: 7199b5af773d0404c923b28490af8b9b, type: 2}
   turret: {fileID: 11400000, guid: fc4f737948747914b93f7b29980210b5, type: 2}
-  TPSCamera: {fileID: 0}
+  tPSCamera: {fileID: 11400000, guid: abafec27ac4f6ca45a922401f83bd5cc, type: 2}
   playerBody: {fileID: 698266118}
 --- !u!1 &270337756
 GameObject:
@@ -3260,7 +3260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _input: {fileID: 11400000, guid: 8eccb6a760b61a949b177c035e064629, type: 2}
   turret: {fileID: 11400000, guid: f33b5c1db2b706b41aa7e0c937258c84, type: 2}
-  TPSCamera: {fileID: 0}
+  tPSCamera: {fileID: 11400000, guid: 915bd16e55ba8734bb7e4b15aa2dd242, type: 2}
   playerBody: {fileID: 428037645}
 --- !u!1 &705507993
 GameObject:
@@ -6773,6 +6773,7 @@ GameObject:
   - component: {fileID: 1237775048}
   - component: {fileID: 1237775049}
   - component: {fileID: 1237775050}
+  - component: {fileID: 1237775051}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6828,6 +6829,20 @@ MonoBehaviour:
   player1Spawn: {fileID: 1031981966}
   player2Spawn: {fileID: 387672434}
   timeRespawn: 3
+--- !u!114 &1237775051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237775047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25d0178467594c143b0877cefee5dcd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPlayer1: {fileID: 1885730843}
+  cameraPlayer2: {fileID: 1829086827}
 --- !u!1 &1241310807
 GameObject:
   m_ObjectHideFlags: 0

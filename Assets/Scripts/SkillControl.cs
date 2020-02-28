@@ -6,7 +6,7 @@ public class SkillControl : MonoBehaviour
 {
     [SerializeField] private InputData _input;
     [SerializeField] private SpawnTurret turret;
-    [SerializeField] private Skills TPSCamera;
+    [SerializeField] private TPSCamera tPSCamera;
     [SerializeField] private GameObject playerBody;
 
     private bool canActiveTurretSkill;
@@ -26,7 +26,7 @@ public class SkillControl : MonoBehaviour
                 turret.UseSkill(_input.info, playerBody, this);
                 break;
             case "tpscamera":
-                //turret.UseSkill(_input.info, playerBody, this);
+                tPSCamera.UseSkill(_input.info);
                 break;
         }
     }
