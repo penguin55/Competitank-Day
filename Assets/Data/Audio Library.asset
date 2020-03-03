@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b47a59eab2df045bcda2da26e014a0, type: 3}
+  m_Name: Audio Library
+  m_EditorClassIdentifier: 
+  audios:
+  - audioName: BGM
+    offsetVolume: 0.4
+    clip: {fileID: 8300000, guid: 31ba2ee6601efd04fb7d37f12d7a5b0b, type: 3}
+  - audioName: Click
+    offsetVolume: 1
+    clip: {fileID: 8300000, guid: 8077711e08e12db4eaff06d86be8b742, type: 3}
+  - audioName: shoot-tank
+    offsetVolume: 0.1
+    clip: {fileID: 8300000, guid: 8be9de5410ca1a2408fd2a807511ebac, type: 3}
+  - audioName: bullet-tank-reflect
+    offsetVolume: 0.05
+    clip: {fileID: 8300000, guid: eb3ffaf69e7aa1a419432900d9ddc3a7, type: 3}
+  - audioName: shoot-turret
+    offsetVolume: 0.1
+    clip: {fileID: 8300000, guid: a24af604fe41ecc478da9c861a785369, type: 3}
+  - audioName: bullet-turret-reflect
+    offsetVolume: 0.05
+    clip: {fileID: 8300000, guid: eb3ffaf69e7aa1a419432900d9ddc3a7, type: 3}

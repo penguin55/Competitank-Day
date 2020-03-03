@@ -7,7 +7,7 @@ public class UIMainMenuManager : MonoBehaviour
 {
     public void Click()
     {
-
+        AudioManager.instance.PlayOneShotSFX("Click");
     }
 
     public void StartGame()

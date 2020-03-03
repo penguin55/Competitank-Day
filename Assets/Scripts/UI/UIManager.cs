@@ -90,6 +90,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void Click()
+    {
+        AudioManager.instance.PlayOneShotSFX("Click");
+    }
+
     public void Retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

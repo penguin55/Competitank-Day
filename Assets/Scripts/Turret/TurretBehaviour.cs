@@ -12,6 +12,7 @@ public class TurretBehaviour : MonoBehaviour
     [SerializeField] private float fireRate;
     [SerializeField] private float offsetToActiveObject;
     [SerializeField] private Collider coll;
+    [SerializeField] private AudioSource audioSource;
 
     private Transform target;
     private Vector3 targetNormalize;
@@ -81,6 +82,8 @@ public class TurretBehaviour : MonoBehaviour
                 bulletInstance.transform.position = bulletSpawnPosition.position;
                 bulletInstance.GetComponent<Bullet>().SetDirection(GetDirectionFire().normalized, turret.eulerAngles.y);
                 bulletInstance.GetComponent<Bullet>().SetOwner("turret");
+
+                AudioManager.instance.PlayOneShotSFXWithSource(ref audioSource, "shoot-turret");
 
                 timeFireRate = 0;
             }

@@ -17,6 +17,7 @@ public class TankBehaviour : MonoBehaviour
     [SerializeField] private int ammo;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
+    [SerializeField] private AudioSource sourceAudio;
 
     private float turnTemp;
     private float fireTime;
@@ -94,6 +95,7 @@ public class TankBehaviour : MonoBehaviour
 
                 fireTime = 0;
                 inFire = true;
+                AudioManager.instance.PlayOneShotSFXWithSource(ref sourceAudio, "shoot-tank");
                 ResetMovement();
                 FireKnockback();
             }
@@ -104,6 +106,7 @@ public class TankBehaviour : MonoBehaviour
     {
         gameObject.SetActive(false);
         GameManagement.instance.Respawn(playerID);
+        TowerBehaviour.instance.SetTankInArea(playerID, false);
         ResetSkill();
     }
 

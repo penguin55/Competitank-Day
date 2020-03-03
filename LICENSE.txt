@@ -1,0 +1,24 @@
+==================================================== 3D Models ====================================================
+
+Turret:
+https://sketchfab.com/3d-models/turret-robot-58f2b4c4cb8b4adba28b514cd22a8952#download
+
+Tower Ward :
+https://sketchfab.com/3d-models/tower-ward1-36ffa4346293453b82002847e7eb9139#download
+
+Tank :
+https://sketchfab.com/3d-models/low-poly-tank-8fef951cfae04ae39071fc412c0967e0
+
+Camera : 
+https://sketchfab.com/3d-models/polaroid-land-camera-low-poly-727013a82a7a4fa38adbfdeae736816e
+
+==================================================== Audio ====================================================
+
+Classic Ricochet Pack : 
+http://soundbible.com/2043-Classic-Ricochet.html
+
+Trancyvania - BGM :
+http://soundimage.org/wp-content/uploads/2016/05/Trancyvania.mp3
+
+Another UI Audio :
+GDC 2019 Bundle

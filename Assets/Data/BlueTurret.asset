@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BlueTurret
   m_EditorClassIdentifier: 
   nameSkill: Turret
-  durationSkill: 0
+  durationSkill: 10
   prefabs: {fileID: 7686754790047564884, guid: a87da23c51a1ce6418de8e580731d52f, type: 3}

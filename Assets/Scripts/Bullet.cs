@@ -6,7 +6,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] private int maxHit;
     [SerializeField] private TrailRenderer trailRender;
     [SerializeField] private int damage;
-    
+    [SerializeField] private AudioSource audioSource;
+
     private Rigidbody rigid;
     private int currentHit;
     private Vector3 direction;
@@ -52,6 +53,7 @@ public class Bullet : MonoBehaviour
             Quaternion angleAdjustment = Quaternion.FromToRotation(direction, desireDirection);
             transform.rotation = angleAdjustment * transform.rotation;
             direction = desireDirection;
+            PlayHitSound();
             CountHit();
         }
     }
@@ -64,6 +66,7 @@ public class Bullet : MonoBehaviour
             Quaternion angleAdjustment = Quaternion.FromToRotation(direction, desireDirection);
             transform.rotation = angleAdjustment * transform.rotation;
             direction = desireDirection;
+            PlayHitSound();
             CountHit();
         }
     }
@@ -91,6 +94,12 @@ public class Bullet : MonoBehaviour
             DestroyObject();
         }
     }
+
+    private void PlayHitSound()
+    {
+        AudioManager.instance.PlayOneShotSFXWithSource(ref audioSource, "bullet-"+owner+"-reflect");
+    }
+
 
     private void OnEnable()
     {
