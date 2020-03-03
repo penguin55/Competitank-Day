@@ -11,6 +11,6 @@ public class SpawnTurret : ScriptableObject
     public void UseSkill(PlayerInfo info, GameObject player, SkillControl skillControl)
     {
         GameObject turret = Instantiate(prefabs, player.transform.position, Quaternion.identity);
-        turret.GetComponent<TurretBehaviour>().Initialize(player, skillControl);
+        turret.GetComponent<TurretBehaviour>().Initialize(player, skillControl, durationSkill);
     }
 }
