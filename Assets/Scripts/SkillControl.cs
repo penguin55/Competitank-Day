@@ -56,8 +56,14 @@ public class SkillControl : MonoBehaviour
         canActiveCameraSkill = true;
     }
 
+    public string GetPlayer()
+    {
+        return _input.info.playerID;
+    }
+
     private void Update()
     {
+        if (GameManagement.gameOver) return;
         Skill();
     }
 

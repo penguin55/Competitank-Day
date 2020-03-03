@@ -10,5 +10,6 @@ public class TPSCamera : ScriptableObject
     public void UseSkill(PlayerInfo info)
     {
         TPSCameraManagement.instance.SetActiveTPSCamera(info.playerID, true);
+        TPSCameraManagement.instance.SetDuration(info.playerID, durationSkill);
     }
 }

@@ -46,7 +46,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Tower"))
         {
             desireDirection = Vector3.Reflect(direction, collision.contacts[0].normal);
             Quaternion angleAdjustment = Quaternion.FromToRotation(direction, desireDirection);
@@ -58,7 +58,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Tower"))
         {
             desireDirection = Vector3.Reflect(direction, collision.contacts[0].normal);
             Quaternion angleAdjustment = Quaternion.FromToRotation(direction, desireDirection);

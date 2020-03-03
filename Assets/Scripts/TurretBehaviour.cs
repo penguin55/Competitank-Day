@@ -18,20 +18,27 @@ public class TurretBehaviour : MonoBehaviour
     private Quaternion toRotation;
     private float timeFireRate;
     private GameObject owner;
-    private bool active;
+    private bool activeCollider;
     private SkillControl skillControl;
+    private float durationSkill;
+    private bool activeTurret;
 
-    public void Initialize(GameObject owner, SkillControl skillControl)
+    public void Initialize(GameObject owner, SkillControl skillControl, float duration)
     {
         coll.enabled = false;
-        active = false;
+        activeCollider = false;
         this.owner = owner;
         this.skillControl = skillControl;
+        durationSkill = duration;
+        activeTurret = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManagement.gameOver) return;
+        if (!activeTurret) return;
+        DurationTiming();
         CheckDistanceFromOwner();
         RotateTo();
         Fire();
@@ -50,16 +57,16 @@ public class TurretBehaviour : MonoBehaviour
 
     private void CheckDistanceFromOwner()
     {
-        if (!active)
+        if (!activeCollider)
         {
             if (Vector3.Distance(owner.transform.position, transform.position) > offsetToActiveObject)
             {
                 coll.enabled = true;
-                active = true;
+                activeCollider = true;
             }
         }
     }
-
+    
     private void Fire()
     {
         if (target == null) return;
@@ -87,6 +94,33 @@ public class TurretBehaviour : MonoBehaviour
     private Vector3 GetDirectionFire()
     {
         return bulletDirection.position - bulletSpawnPosition.position;
+    }
+
+    private void DurationTiming()
+    {
+        durationSkill -= Time.deltaTime;
+
+        if (durationSkill < 0)
+        {
+            durationSkill = 0;
+            UpdateTimeUI(((int) durationSkill).ToString());
+            DestroyTurret();
+        } else
+        {
+            UpdateTimeUI(((int) durationSkill).ToString());
+        }
+    }
+
+    private void DestroyTurret()
+    {
+        UpdateTimeUI("");
+        activeTurret = false;
+        Destroy(gameObject);
+    }
+
+    private void UpdateTimeUI(string value)
+    {
+        UIManager.instance.SendMessageToSkilUI(value, "turret", skillControl.GetPlayer(), true);
     }
 
     private void OnTriggerEnter(Collider collision)

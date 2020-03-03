@@ -5,8 +5,7 @@ using UnityEngine;
 public class GameManagement : MonoBehaviour
 {
     public static GameManagement instance;
-
-    public bool gameOver;
+    public static bool gameOver;
 
     [SerializeField] private GameObject player1;
     [SerializeField] private GameObject player2;
@@ -15,7 +14,6 @@ public class GameManagement : MonoBehaviour
     [SerializeField] private float timeRespawn;
 
     
-
     private void Start()
     {
         instance = this;
@@ -44,5 +42,10 @@ public class GameManagement : MonoBehaviour
                 player2.SetActive(true);
                 break;
         }
+    }
+
+    public void GameOver()
+    {
+        gameOver = true;
     }
 }

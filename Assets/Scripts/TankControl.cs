@@ -17,6 +17,7 @@ public class TankControl : TankBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (GameManagement.gameOver) return;
         FireTimer();
 
         if (inFire) return;

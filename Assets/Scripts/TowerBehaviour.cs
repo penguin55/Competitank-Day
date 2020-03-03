@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class TowerBehaviour : MonoBehaviour
@@ -11,11 +12,12 @@ public class TowerBehaviour : MonoBehaviour
     [SerializeField] private float timeCapture;
     [SerializeField] private float maxValue;
     [SerializeField] private float incrementValue;
+    [SerializeField] private UnityEvent eventTrigger;
 
     private float redFieldValue;
     private float blueFieldValue;
     private float time;
-    [SerializeField] private bool redTeam, blueTeam;
+    private bool redTeam, blueTeam;
 
 
     private void SetInitializeField()
@@ -34,7 +36,24 @@ public class TowerBehaviour : MonoBehaviour
 
     private void Update()
     {
+        if (GameManagement.gameOver) return;
         CapturingTime();
+    }
+
+    private void GetCaptured()
+    {
+        if (blueFieldValue == maxValue)
+        {
+            UIManager.instance.SetGameOverUI("Blue");
+        }
+
+        if (redFieldValue == maxValue)
+        {
+            UIManager.instance.SetGameOverUI("Red");
+        }
+
+        eventTrigger.Invoke();
+        GameManagement.instance.GameOver();
     }
 
     private void CapturingTime()
@@ -92,6 +111,7 @@ public class TowerBehaviour : MonoBehaviour
         else if (redFieldValue > maxValue)
         {
             redFieldValue = maxValue;
+            GetCaptured();
         }
     }
 
@@ -106,6 +126,7 @@ public class TowerBehaviour : MonoBehaviour
         else if (blueFieldValue > maxValue)
         {
             blueFieldValue = maxValue;
+            GetCaptured();
         }
     }
 

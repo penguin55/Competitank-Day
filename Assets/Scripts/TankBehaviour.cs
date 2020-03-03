@@ -59,7 +59,13 @@ public class TankBehaviour : MonoBehaviour
         }
         UIManager.instance.UpdateBarHeath(playerID, health);
     }
-    
+
+    public void ResetTankPlayer()
+    {
+        moveDirection = 0;
+        turnDirection = 0;
+    }
+
     protected void TankMove()
     {
         direction = transform.forward * moveDirection * moveSpeed * Time.deltaTime;
@@ -126,6 +132,7 @@ public class TankBehaviour : MonoBehaviour
     {
         moveDirection = 0;
         turnDirection = 0;
+        rigid.velocity = Vector3.zero;
     }
 
     private void ResetSkill()
