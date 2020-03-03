@@ -14850,6 +14850,7 @@ GameObject:
   - component: {fileID: 6439606807409905922}
   - component: {fileID: 7999885650726494994}
   - component: {fileID: 7999885650726494995}
+  - component: {fileID: 7999885650726494996}
   m_Layer: 14
   m_Name: Ward Tower
   m_TagString: Tower
@@ -14911,6 +14912,24 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 10
   m_Center: {x: 0, y: -4.55, z: 0}
+--- !u!114 &7999885650726494996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7999885650726494993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d3fa5dba0df1544a9faca29cb4d8d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  innerRing: {fileID: 3474389795389747428}
+  outterRing: {fileID: 514665137561285871}
+  stabilizer: {fileID: 987474053}
+  innerRingSpeed: 20
+  outterRingSpeed: 60
+  stabilizerSpeed: 100
 --- !u!1 &8060108587614290257
 GameObject:
   m_ObjectHideFlags: 0
